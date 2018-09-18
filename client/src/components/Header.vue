@@ -18,8 +18,22 @@
 
 			<v-spacer />
 			<v-toolbar-items>
-				<v-btn dark flat @click="navigateTo({name: 'register'})" class="red darken-3">Sign Up</v-btn>
-				<v-btn dark flat @click="navigateTo({name: 'login'})" class="green">login</v-btn>
+				<v-btn 
+					v-if="!$store.state.isUserLoggedIn" 
+					dark 
+					flat 
+					@click="navigateTo({name: 'register'})" 
+					class="red darken-3">
+					Sign Up
+				</v-btn>
+				<v-btn 
+					v-if="!$store.state.isUserLoggedIn"
+					dark 
+					flat 
+					@click="navigateTo({name: 'login'})" 
+					class="green">
+					Login
+				</v-btn>
 			</v-toolbar-items>
 		</v-toolbar>
 	</div>

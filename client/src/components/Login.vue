@@ -11,8 +11,7 @@
               <v-text-field 
               type="password"
               label="Password" 
-              v-model="password"
-              :type="show1 ? 'text' : 'password'" />
+              v-model="password"/>
               <div class="err" v-html="error" />
               <br>
               <v-btn dark class="green" @click="login">Login</v-btn>
@@ -31,8 +30,7 @@ export default {
     return {
       email: "",
       password: "",
-      error: null,
-      show1: false
+      error: null
     };
   },
   methods: {
@@ -42,7 +40,8 @@ export default {
           email: this.email,
           password: this.password
         });
-        console.log(response.data);
+        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setUser", response.data.user);
       } catch (error) {
         this.error = error.response.data.error;
       }

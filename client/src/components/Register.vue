@@ -12,7 +12,7 @@
               <v-text-field 
               label="Password" 
               v-model="password"
-              :type="show1 ? 'text' : 'password'" />
+              type="password" />
               <div class="err" v-html="error" />
               <br>
               <v-btn dark class="red darken-3" @click="register">Register</v-btn>
@@ -32,8 +32,7 @@ export default {
       username: "",
       email: "",
       password: "",
-      error: null,
-      show1: false
+      error: null
     };
   },
   methods: {
@@ -44,7 +43,8 @@ export default {
           email: this.email,
           password: this.password
         });
-        console.log(response.data);
+        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setUser", response.data.user);
       } catch (error) {
         this.error = error.response.data.error;
       }
