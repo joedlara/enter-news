@@ -4,6 +4,7 @@ import Welcome from "./components/Welcome.vue";
 import About from "./components/About.vue";
 import Register from "./components/Register.vue";
 import Login from "./components/Login.vue";
+import News from "./components/News.vue";
 
 Vue.use(Router);
 
@@ -30,6 +31,11 @@ export default new Router({
       path: "/login",
       name: "login",
       component: Login
+    },
+    {
+      path: "/main-news/create",
+      name: "main-create",
+      component: News
     }
   ]
 });

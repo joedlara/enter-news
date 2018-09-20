@@ -10,8 +10,8 @@
 			<v-toolbar-items>
 				<v-btn flat @click="navigateTo({name: 'about'})">News</v-btn>
 				<v-btn flat @click="navigateTo({name: 'about'})">Videos</v-btn>
-				<v-btn flat @click="navigateTo({name: 'about'})">Reviews</v-btn>
-				<v-btn flat @click="navigateTo({name: 'about'})">Comics Books</v-btn>
+				<v-btn flat @click="navigateTo({name: 'about'})">Movies</v-btn>
+				<v-btn flat @click="navigateTo({name: 'about'})">Comics</v-btn>
 				<v-btn flat @click="navigateTo({name: 'about'})">Anime</v-btn>
 				<v-btn flat @click="navigateTo({name: 'about'})">About</v-btn>
 			</v-toolbar-items>
@@ -31,8 +31,16 @@
 					dark 
 					flat 
 					@click="navigateTo({name: 'login'})" 
-					class="green">
+					class="blue-grey lighten-2">
 					Login
+				</v-btn>
+				<v-btn 
+					v-if="$store.state.isUserLoggedIn"
+					dark 
+					flat 
+					@click="logout" 
+					class="red darken-3">
+					Log Out
 				</v-btn>
 			</v-toolbar-items>
 		</v-toolbar>
@@ -44,6 +52,11 @@ export default {
   methods: {
     navigateTo(route) {
       this.$router.push(route);
+    },
+    logout() {
+      this.$store.dispatch("setToken", null);
+      this.$store.dispatch("setUser", null);
+      this.$router.push({ name: "welcome" });
     }
   }
 };
