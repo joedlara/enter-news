@@ -1,14 +1,17 @@
+import "@babel/polyfill";
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import date from "date-and-time";
 import Vuetify from "vuetify";
-import { sync } from "vuex-router-sync";
 import "vuetify/dist/vuetify.min.css";
+import { sync } from "vuex-router-sync";
 
 Vue.config.productionTip = false;
+Vue.use(date);
 Vue.use(Vuetify, {
-  iconfont: "mdi" || "md" || "mdi" || "fa" || "fa4"
+  iconfont: "md"
 });
 
 sync(store, router);
@@ -20,11 +23,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
-
-// new Vue({
-//   el: "#app",
-//   router,
-// 	store,
-//   template: "<App/>",
-//   components: { App }
-// });

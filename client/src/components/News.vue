@@ -2,17 +2,17 @@
 	<v-layout >
 		<v-flex xs4>
 			<panel title="News Metadata">
-		          <v-text-field label="Title" v-model="news.title" />
-		          <v-text-field label="Author" v-model="news.author"/>
-		          <v-text-field label="Category" v-model="news.category" />
-		          <v-text-field label="Image Url" v-model="news.newsImageUrl"/>
+		          <v-text-field label="Title" v-model="news.title" required :rules=[required] />
+		          <v-text-field label="Author" v-model="news.author" required :rules=[required] />
+		          <v-text-field label="Category" v-model="news.category" required :rules=[required] />
+		          <v-text-field label="Image Url" v-model="news.newsImageUrl" required :rules=[required] />
 		          <v-text-field label="Youtube Id" v-model="news.youtubeId" />
 		          <v-text-field label="Tags" v-model="news.tags" />
 			</panel>
 		</v-flex>
 		<v-flex xs8>
 			<panel title="Review/News" class="ml-2">
-				<v-textarea label="Story" v-model="news.story"/>
+				<v-textarea label="Story" v-model="news.story" required :rules=[required] />
 				</panel>
 				<br>
 				<v-btn dark class="blue darken-4" @click="createNewsPost">Create</v-btn>
@@ -38,7 +38,8 @@ export default {
         youtubeId: "",
         tags: "",
         story: ""
-      }
+      },
+      required: value => !!value || "Required"
     };
   },
   methods: {

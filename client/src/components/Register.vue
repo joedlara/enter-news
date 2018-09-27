@@ -3,8 +3,16 @@
     <v-flex xs6 offset-xs3 class="text-xs-center">
       <panel title="Register">
         <v-form ref="form" lazy-validation>
-          <v-text-field label="Username" v-model="username" />
-          <v-text-field label="Email" v-model="email" />
+          <v-text-field 
+          label="Username" 
+          required
+          :rules="[required]"
+          v-model="username" />
+
+          <v-text-field 
+          label="Email" 
+          v-model="email" />
+
           <v-text-field 
           label="Password" 
           v-model="password"
@@ -31,7 +39,8 @@ export default {
       username: "",
       email: "",
       password: "",
-      error: null
+      error: null,
+      required: value => !!value || "Username is required"
     };
   },
   methods: {

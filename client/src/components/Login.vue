@@ -3,7 +3,11 @@
     <v-flex xs6 offset-xs3 class="text-xs-center">
       <panel title="Login">
         <v-form lazy-validation autocomplete="on">
-          <v-text-field type="email" label="Email" v-model="email" />
+          <v-text-field 
+          type="email" 
+          label="Email" 
+          v-model="email" />
+
           <v-text-field 
           type="password"
           label="Password" 

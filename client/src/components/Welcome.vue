@@ -2,12 +2,13 @@
   <div>
     <h1>Falcon Entertainment</h1> 
     <div v-if="$store.state.isUserLoggedIn">
-    	<h3> Welcome <span class="name">{{$store.state.user.username}}</span>!</h3>
     </div>
     <div v-for="news in mainNews" :key="news.id">
-    	{{news.title}}
-    	{{news.author}}
-    	{{news.story}}
+      <img class="newsImage" :src="news.newsImageUrl">
+    	<h1>{{news.title}}</h1>
+    	Author: {{news.author}}<br>
+      <!-- {{news.createdAt}} -->
+    	<h3>{{news.story}}</h3><br>
     </div>
   </div>
 </template>
@@ -21,11 +22,9 @@ export default {
   },
   data() {
     return {
-      mainNews: null
+      mainNews: null,
+      dateToday: Number
     };
-  },
-  props: {
-    user: String
   }
 };
 </script>
@@ -34,5 +33,10 @@ export default {
 .name {
   text-transform: capitalize;
   color: #c62828;
+}
+
+.newsImage {
+  width: 50%;
+  margin: 0 auto;
 }
 </style>
