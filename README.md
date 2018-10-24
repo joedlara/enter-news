@@ -2,7 +2,7 @@
 
 > Entertainment channel and video app
 
-## Project setup
+## Project setup for client side
 
 ```
 npm install
@@ -25,3 +25,12 @@ npm run build
 ```
 npm run lint
 ```
+
+## Project setup for server side
+
+### Compiles and hot-reloads for development
+
+```
+npm start
+```
+
