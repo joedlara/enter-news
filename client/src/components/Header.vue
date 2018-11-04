@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<v-toolbar>
+	<div class="navbar">
+		<v-toolbar fixed>
 			<v-toolbar-title class="pt-2 mr-2 ">
 				<img src="../assets/falcon-logo.png" @click="navigateTo({name: 'welcome'})">
 				<span class="logo" @click="navigateTo({name: 'welcome'})">
@@ -85,10 +85,15 @@ export default {
 </script>
 
 <style scoped>
+.navbar{
+margin-bottom: 6em;
+}
+
 .logo {
   cursor: pointer;
   font-weight: bold;
   color: #c62828;
+  font-size: 14px;
 }
 img {
   cursor: pointer;

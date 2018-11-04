@@ -3,9 +3,7 @@
     <v-app>
       <page-header />
         <v-content>
-
             <router-view />
-
         </v-content>
     </v-app>
   </div>

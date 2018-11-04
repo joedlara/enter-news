@@ -1,18 +1,14 @@
 <template>
   <div>
-  <br> 
+    <span class="fen">Falcon Entertainment</span>
     <div class="head" v-for="news in mainNews" :key="news.id">
       <img class="newsImage" :src="news.newsImageUrl">
-      <div class="news-title">
-      	<h1>{{news.title}}</h1>
+      <div class="news-head">
+      	<h1 class="news-title">{{news.title}}</h1>
       	<h3>{{news.story}}</h3>
       </div>
     </div>
     <div class="gry-box">
-      <p>dafadsf</p>
-      <h2>dgfadf</h2>
-      <p>lorem ipsum </p>
-      
     </div>
   </div>
 </template>
@@ -34,8 +30,16 @@ export default {
 </script>
 
 <style scoped>
+.fen{
+  font-size: 4em;
+  font-weight: bold;
+  color: #c62828;
+}
+
 .head {
-  outline: 3px dotted red;
+  position: relative;
+  text-align: center;
+  margin-bottom: 2em;  
 }
 
 .name {
@@ -44,12 +48,15 @@ export default {
 }
 
 .news-title {
-  color: #fafafa;
+  color: #c62828;
   font-family: sans-serif;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -107%);
+}
+.news-head {
+  color: black;
+  position: absolute;
+  bottom: 7px;
+  text-align: left;
+  padding: 0.5em;
   background-color: rgba(189, 189, 189, 0.9);
   width: 100%;
 }
@@ -63,7 +70,13 @@ export default {
 .gry-box {
   height: 20em;
   background-color: #d8d8d8;
-  outline: 3px dotted black;
+  background: repeating-linear-gradient(
+  -55deg,
+  rgba(0, 0, 0, 0.2),
+  rgba(0, 0, 0, 0.2) 10px,
+  rgba(0, 0, 0, 0.3) 10px,
+  rgba(0, 0, 0, 0.3) 20px
+);
   margin-top: 1em;
   margin-bottom: 1em;
 }
