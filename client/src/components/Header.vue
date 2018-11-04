@@ -59,20 +59,18 @@
 </template>
 
 <script>
-import date from 'date-and-time';
+import date from "date-and-time";
 export default {
-  mounted () {
-  	const now = new Date();
-  	this.dateToday = date.format(now, 'ddd, MMM DD');
+  mounted() {
+    const now = new Date();
+    this.dateToday = date.format(now, "ddd, MMM DD");
   },
-	data() {
-		return {
-		  dateToday: Number,
-		  loginItems: [
-		  	{ text: 'Logout', link: '/about'}
-		  ]
-		};
-},
+  data() {
+    return {
+      dateToday: Number,
+      loginItems: [{ text: "Logout", link: "/about" }]
+    };
+  },
   methods: {
     navigateTo(route) {
       this.$router.push(route);

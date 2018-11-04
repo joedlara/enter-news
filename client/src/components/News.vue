@@ -1,5 +1,5 @@
 <template>
-	<v-layout >
+	<v-layout container>
 		<v-flex xs4>
 			<panel title="News Metadata">
 		          <v-text-field label="Title" v-model="news.title" required :rules=[required] />
@@ -46,7 +46,7 @@ export default {
     async createNewsPost() {
       try {
         await NewsService.postNews(this.news);
-        // this.$router.push({ name: "welcome" });
+        this.$router.push({ name: "welcome" });
       } catch (error) {
         console.log(error);
       }
