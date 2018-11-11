@@ -18,26 +18,18 @@
 				<v-btn flat @click="navigateTo({name: 'about'})">Anime</v-btn>
 				<v-btn flat @click="navigateTo({name: 'about'})">About</v-btn>
 			</v-toolbar-items>
-
 			<v-spacer />
+			
+			<sign-in />
 			<v-toolbar-items>
-				<v-btn 
+				<!-- <v-btn 
 				v-if="!$store.state.isUserLoggedIn" 
 				dark 
 				flat 
 				@click="navigateTo({name: 'register'})" 
 				class="red darken-3">
-				Sign Up
-				</v-btn>
-
-				<v-btn 
-				v-if="!$store.state.isUserLoggedIn"
-				dark 
-				flat 
-				@click="navigateTo({name: 'login'})" 
-				class="blue-grey lighten-2">
-				Login
-				</v-btn>
+				Sign up
+				</v-btn> -->
 				<v-btn 
 				v-if="$store.state.isUserLoggedIn"
 				disabled
@@ -45,13 +37,13 @@
 				<v-icon class="mr-2">person</v-icon>
 				<span>{{$store.state.user.username}}</span>
 				</v-btn>
-				<v-btn 
+			<!-- 	<v-btn 
 				v-if="$store.state.isUserLoggedIn"
 				class="red darken-3"
 				@click="logout" 
 				flat>
 				Logout
-				</v-btn>
+				</v-btn> -->
 
 			</v-toolbar-items>
 		</v-toolbar>
@@ -59,8 +51,12 @@
 </template>
 
 <script>
+import SignIn from "@/components/SignIn";
 import date from "date-and-time";
 export default {
+components:{
+	SignIn,
+},
   mounted() {
     const now = new Date();
     this.dateToday = date.format(now, "ddd, MMM DD");
@@ -68,7 +64,7 @@ export default {
   data() {
     return {
       dateToday: Number,
-      loginItems: [{ text: "Logout", link: "/about" }]
+      loginItems: [{ text: "Logout", link: "/about" }],
     };
   },
   methods: {

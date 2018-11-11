@@ -57,6 +57,7 @@ export default {
   bottom: 7px;
   text-align: left;
   padding: 0.5em;
+  padding-left: 2em;
   background-color: rgba(189, 189, 189, 0.9);
   width: 100%;
 }
